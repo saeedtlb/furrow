@@ -11,7 +11,7 @@ export const HeaderNav = style(motion.div)`
     z-index: 99;
 `
 
-export const HeaderNav = style.div`
+export const Logo = style.div`
     a {
         font-size: 1.8rem;
         font-weight: 800;
@@ -29,7 +29,7 @@ export const HeaderNav = style.div`
     }
 `
 
-export const HeaderNav = style.div`
+export const Menu = style.div`
     button {
         transform-origin: center;
         border: none;
