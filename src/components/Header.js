@@ -18,7 +18,7 @@ const Header = () => {
 
   useEffect(() => {
     window.localStorage.setItem("theme", currentTheme)
-  }, currentTheme)
+  }, [currentTheme])
 
   const toggleTheme = () => dispatch(toggle_theme(currentTheme))
 
