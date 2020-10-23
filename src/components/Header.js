@@ -10,10 +10,10 @@ import {
   useGlobalStateContext,
   useGlobalDispatchContext,
 } from "../context/globalContext"
-import { toggle_theme } from "../actions/action"
+import { toggle_theme, cursor_style } from "../actions/action"
 
 const Header = () => {
-  const { currentTheme } = useGlobalStateContext()
+  const { currentTheme, cursorStyles } = useGlobalStateContext()
   const dispatch = useGlobalDispatchContext()
 
   useEffect(() => {
@@ -21,6 +21,11 @@ const Header = () => {
   }, [currentTheme])
 
   const toggleTheme = () => dispatch(toggle_theme(currentTheme))
+
+  const onCursor = type => {
+    type = cursorStyles.includes(type) && type
+    dispatch(cursor_style(type))
+  }
 
   return (
     <HeaderNav
@@ -30,9 +35,13 @@ const Header = () => {
     >
       <Container>
         <Flex spaceBetween noHeight>
-          <Logo>
+          <Logo onMouseOver={() => onCursor("hovered")} onMouseOut={onCursor}>
             <Link to="/">FURR</Link>
-            <span onClick={toggleTheme}></span>
+            <span
+              onMouseMove={() => onCursor("pointer")}
+              onMouseOut={onCursor}
+              onClick={toggleTheme}
+            ></span>
             <Link to="/">W</Link>
           </Logo>
           <Menu>
