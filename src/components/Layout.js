@@ -7,6 +7,7 @@ import { normalize } from "styled-normalize"
 
 // COMPONENTS
 import Header from "./Header"
+import Cursor from "./CustomCursor"
 
 // Context
 import { useGlobalStateContext } from "../context/globalContext"
@@ -15,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     ${normalize}
     * {
         text-decoration: none;
-        // cursor: none;
+        cursor: none;
     }
     
     html {
@@ -49,6 +50,7 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyle />
+      <Cursor />
       <Header />
       <main>{children}</main>
     </ThemeProvider>
