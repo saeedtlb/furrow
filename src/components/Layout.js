@@ -10,13 +10,17 @@ import Header from "./Header"
 import Cursor from "./CustomCursor"
 
 // Context
-import { useGlobalStateContext } from "../context/globalContext"
+import {
+  useGlobalStateContext,
+  useGlobalDispatchContext,
+} from "../context/globalContext"
+import { cursor_style } from "../actions/action"
 
 const GlobalStyle = createGlobalStyle`
     ${normalize}
     * {
         text-decoration: none;
-        cursor: none;
+        /* cursor: none; */
     }
     
     html {
@@ -46,12 +50,19 @@ const lightTheme = {
 }
 
 const Layout = ({ children }) => {
-  const { currentTheme } = useGlobalStateContext()
+  const { cursorStyles, currentTheme } = useGlobalStateContext()
+  const dispatch = useGlobalDispatchContext()
+
+  const onCursor = type => {
+    type = cursorStyles.includes(type) && type
+    dispatch(cursor_style(type))
+  }
+
   return (
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyle />
-      <Cursor />
-      <Header />
+      {/* <Cursor /> */}
+      {/* <Header onCursor={type => onCursor(type)} /> */}
       <main>{children}</main>
     </ThemeProvider>
   )
