@@ -58,3 +58,31 @@ export const Flex = style.div`
         height: 0;
       `}
 `
+
+export const Customursor = style.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    background: ${props => props.theme.red};
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+    transition: all 0.1s ease-in-out;
+    transition-property: width, height, border;
+    will-change: width, height, transform, border;
+    pointer-events: none;
+    z-index: 999;
+    
+    &.pointer {
+        // border-color: ${props => props.theme.text} !important;
+        border: 4px solid ${props => props.theme.text} !important;
+    }
+    
+    &.hovered {
+        width: 56px;
+        height: 56px;
+        background: transparent !important;
+        border: 4px solid ${props => props.theme.red}
+    }
+`
