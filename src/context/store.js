@@ -4,4 +4,5 @@ export default {
     : "dark",
   cursorType: false,
   cursorStyles: ["pointer", "hovered", "locked", "white"],
-}
+  toggleMenu: false,
+};
