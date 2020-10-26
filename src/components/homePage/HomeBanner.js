@@ -13,17 +13,16 @@ import useWindowSize from "../../hooks/useWindowSize"
 // Context
 import { useGlobalStateContext } from "../../context/globalContext"
 
-const HomeBanner = () => {
+const HomeBanner = ({ onCursor }) => {
   const size = useWindowSize()
   const { currentTheme } = useGlobalStateContext()
   let canvas = useRef(null)
 
   useEffect(() => {
-    let renderingElement = canvas.current
-    // create an offscreen canvas only for the drawings
-    let drawingElement = renderingElement.cloneNode()
-    let drawingCtx = drawingElement.getContext("2d")
-    let renderingCtx = renderingElement.getContext("2d")
+    const renderingElement = canvas.current
+    const drawingElement = renderingElement.cloneNode()
+    const drawingCtx = drawingElement.getContext("2d")
+    const renderingCtx = renderingElement.getContext("2d")
     let lastX
     let lastY
     let moving = false
@@ -32,17 +31,20 @@ const HomeBanner = () => {
     renderingCtx.fillStyle = currentTheme === "dark" ? "#000000" : "#ffffff"
     renderingCtx.fillRect(0, 0, size.width, size.height)
 
+    drawingCtx.lineJoin = "round"
+    // drawingCtx.lineWidth = 120
+
     renderingElement.addEventListener("mouseover", ev => {
       moving = true
       lastX = ev.pageX - renderingElement.offsetLeft
       lastY = ev.pageY - renderingElement.offsetTop
     })
 
-    // renderingElement.addEventListener("mouseup", ev => {
-    //   moving = false
-    //   lastX = ev.pageX - renderingElement.offsetLeft
-    //   lastY = ev.pageY - renderingElement.offsetTop
-    // })
+    renderingElement.addEventListener("mouseup", ev => {
+      moving = false
+      lastX = ev.pageX - renderingElement.offsetLeft
+      lastY = ev.pageY - renderingElement.offsetTop
+    })
 
     renderingElement.addEventListener("mousemove", ev => {
       if (moving) {
@@ -50,11 +52,9 @@ const HomeBanner = () => {
         renderingCtx.globalCompositeOperation = "destination-out"
         let currentX = ev.pageX - renderingElement.offsetLeft
         let currentY = ev.pageY - renderingElement.offsetTop
-        drawingCtx.lineJoin = "round"
         drawingCtx.moveTo(lastX, lastY)
         drawingCtx.lineTo(currentX, currentY)
         drawingCtx.closePath()
-        drawingCtx.lineWidth = 120
         drawingCtx.stroke()
         lastX = currentX
         lastY = currentY
@@ -66,25 +66,24 @@ const HomeBanner = () => {
   return (
     <Banner>
       <Video>
-        {/* <video
-          height="100%"
-          width="100%"
-          loop
-          autoPlay
-          src={require("../../assets/video/video.mp4")}
-        /> */}
+        <video height="100%" width="100%" loop autoPlay>
+          <source
+            src={require("../../assets/video/video.mp4")}
+            type="mp4/video"
+          />
+        </video>
       </Video>
       <Canvas
         ref={canvas}
         width={size.width}
         height={size.height}
-        // onMouseEnter={() => onCursor("hovered")}
-        // onMouseLeave={onCursor}
+        onMouseEnter={() => onCursor("hovered")}
+        onMouseLeave={onCursor}
       />
-      {/* <BannerTitle>
+      <BannerTitle>
         <Headline>DIG</Headline>
         <Headline>DEEP</Headline>
-      </BannerTitle> */}
+      </BannerTitle>
     </Banner>
   )
 }

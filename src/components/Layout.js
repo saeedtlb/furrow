@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     ${normalize}
     * {
         text-decoration: none;
-        /* cursor: none; */
+        cursor: none;
     }
     
     html {
@@ -61,8 +61,8 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyle />
-      {/* <Cursor /> */}
-      {/* <Header onCursor={type => onCursor(type)} /> */}
+      <Cursor />
+      <Header onCursor={type => onCursor(type)} />
       <main>{children}</main>
     </ThemeProvider>
   )

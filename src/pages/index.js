@@ -22,8 +22,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      {/* <HomeBanner onCursor={type => onCursor(type)} /> */}
-      <HomeBanner />
+      <HomeBanner onCursor={type => onCursor(type)} />
     </Layout>
   )
 }

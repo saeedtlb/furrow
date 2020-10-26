@@ -14,7 +14,7 @@ export const Video = styled.div`
   height: 100%;
   width: 100%;
 
-  background: #fff;
+  /* background: #fff; */
 
   video {
     object-fit: cover;
