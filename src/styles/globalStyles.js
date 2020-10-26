@@ -1,4 +1,4 @@
-import style, { css } from "styled-components"
+import style, { css } from "styled-components";
 
 export const Container = style.div`
     flex-grow: 1;
@@ -27,7 +27,7 @@ export const Container = style.div`
         margin: 0;
         max-width: 100%;
       `}
-`
+`;
 
 export const Flex = style.div`
     position: relative;
@@ -57,9 +57,9 @@ export const Flex = style.div`
       css`
         height: 0;
       `}
-`
+`;
 
-export const Customursor = style.div`
+export const CustomCursor = style.div`
     position: absolute;
     top: 0;
     left: 0;
@@ -85,4 +85,8 @@ export const Customursor = style.div`
         background: transparent !important;
         border: 4px solid ${props => props.theme.red}
     }
-`
+    
+    &.nav-open {
+        background: ${props => props.theme.text}
+    }
+`;
