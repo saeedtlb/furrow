@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 // STYLED-COMPONENT
@@ -64,7 +64,7 @@ const Layout = ({ children }) => {
       <GlobalStyle />
       <Cursor />
       <Header onCursor={type => onCursor(type)} />
-      <Navigation />
+      <Navigation onCursor={type => onCursor(type)} />
       <main>{children}</main>
     </ThemeProvider>
   );
