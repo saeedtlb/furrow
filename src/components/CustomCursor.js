@@ -22,7 +22,8 @@ const Cursor = () => {
   }, [])
 
   const onMouseMove = e => {
-    const { pageX: x, pageY: y } = e
+    // const { pageX: x, pageY: y } = e
+    const { clientX: x, clientY: y } = e
 
     setMousePosition({ x, y })
   }

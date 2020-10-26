@@ -3,5 +3,5 @@ export default {
     ? window.localStorage.getItem("theme")
     : "dark",
   cursorType: false,
-  cursorStyles: ["pointer", "hovered"],
+  cursorStyles: ["pointer", "hovered", "locked", "white"],
 }
