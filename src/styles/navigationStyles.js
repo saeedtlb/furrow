@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-export const Nav = styled.div`
+export const Nav = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
@@ -80,6 +80,37 @@ export const NavList = styled.div`
           }
         }
       }
+    }
+  }
+`;
+
+export const NavVideos = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 28%;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  background: #000;
+
+  .reveal {
+    width: 100%;
+    background: ${props => props.theme.red};
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .video {
+    background: #000;
+    position: absolute;
+    height: 100%;
+    margin: 0;
+    z-index: -1;
+
+    video {
+      height: inherit;
     }
   }
 `;
