@@ -130,13 +130,14 @@ export const FeaturedVideo = styled.div`
 export const FeaturedProjects = styled.div`
   margin-top: 200px;
 
-  /* button {
+  button {
+    background: #ea281e;
     color: #fff;
     position: relative;
     padding: 20px;
     display: block;
     text-align: left;
-    font-size: 104rem;
+    font-size: 1.4rem;
     line-height: 1;
     font-weight: 600;
     border: none;
@@ -163,5 +164,5 @@ export const FeaturedProjects = styled.div`
     &::after {
       margin-top: 8px;
     }
-  } */
+  }
 `;
