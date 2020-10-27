@@ -58,7 +58,7 @@ export const Content = styled.h2`
 `;
 
 // FEATURED
-export const Homefeatured = styled.div`
+export const Homefeatured = styled(motion.div)`
   margin-bottom: 200px;
   position: relative;
 
@@ -69,7 +69,7 @@ export const Homefeatured = styled.div`
   }
 `;
 
-export const FeaturedContent = styled.div`
+export const FeaturedContent = styled(motion.div)`
   height: 480px;
   width: 100%;
   box-sizing: border-box;
