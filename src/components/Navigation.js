@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 
-import { navRoutes } from "./utils/navRoutes";
+import { navRoutes } from "./utils/misc";
 
 // ANIMATION
 import { motion, AnimatePresence } from "framer-motion";
