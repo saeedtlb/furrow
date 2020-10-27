@@ -130,7 +130,7 @@ export const FeaturedVideo = styled.div`
 export const FeaturedProjects = styled.div`
   margin-top: 200px;
 
-  button {
+  /* button {
     color: #fff;
     position: relative;
     padding: 20px;
@@ -163,5 +163,5 @@ export const FeaturedProjects = styled.div`
     &::after {
       margin-top: 8px;
     }
-  }
+  } */
 `;

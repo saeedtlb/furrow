@@ -26,7 +26,7 @@ const IndexPage = () => {
     <Layout>
       <HomeBanner onCursor={onCursor} />
       <HomeContent />
-      {/* <HomeFeatured /> */}
+      <HomeFeatured />
     </Layout>
   );
 };

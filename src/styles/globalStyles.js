@@ -75,7 +75,6 @@ export const CustomCursor = style.div`
     z-index: 999;
     
     &.pointer {
-        // border-color: ${props => props.theme.text} !important;
         border: 4px solid ${props => props.theme.text} !important;
     }
     
