@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-export const Nav = styled(motion.div)`
+export const Nav = styled(motion.nav)`
   position: fixed;
   top: 0;
   left: 0;
@@ -14,7 +14,7 @@ export const Nav = styled(motion.div)`
   overflow: hidden;
 `;
 
-export const NavHeader = styled.div`
+export const NavHeader = styled.header`
   top: 72px;
   position: relative;
 
