@@ -14,7 +14,7 @@ const HomeFeatured = () => {
   return (
     <Homefeatured>
       <Container>
-        <Link>
+        <Link to="/">
           <FeaturedContent>
             <Flex spaceBetween>
               <h3>Featured Project</h3>
