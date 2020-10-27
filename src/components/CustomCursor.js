@@ -22,7 +22,8 @@ const Cursor = () => {
   }, []);
 
   const onMouseMove = e => {
-    const { clientX: x, clientY: y } = e;
+    const { clientX: x, clientY: Y } = e;
+    const y = Y + window.scrollY;
 
     setMousePosition({ x, y });
   };
