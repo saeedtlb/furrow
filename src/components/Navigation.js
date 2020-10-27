@@ -25,7 +25,7 @@ import {
 } from "../styles/navigationStyles";
 
 const Navigation = ({ onCursor }) => {
-  const [toggleMenu] = useGlobalStateContext();
+  const { toggleMenu } = useGlobalStateContext();
   const dispatch = useGlobalDispatchContext();
 
   const [revealVideo, setRevealVideo] = useState({
@@ -50,7 +50,7 @@ const Navigation = ({ onCursor }) => {
                 <CloseNav
                   onMouseEnter={() => onCursor("pointer")}
                   onMouseLeave={onCursor}
-                  onClick={dispatch(change_Menu(toggleMenu))}
+                  onClick={() => dispatch(change_Menu(toggleMenu))}
                 >
                   <button>
                     <span></span>
@@ -119,7 +119,7 @@ const Navigation = ({ onCursor }) => {
               ></motion.div>
               <div className="video">
                 <AnimatePresence initial={false} exitBeforeEnter>
-                  <motin.video
+                  <motion.video
                     key={revealVideo.key}
                     initial={{ opacity: 0 }}
                     exit={{ opacity: 0 }}
@@ -131,7 +131,7 @@ const Navigation = ({ onCursor }) => {
                     src={require(`../assets/video/${revealVideo.video}`)}
                     autoPlay
                     loop
-                  ></motin.video>
+                  ></motion.video>
                 </AnimatePresence>
               </div>
             </NavVideos>

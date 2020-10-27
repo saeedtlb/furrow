@@ -1,26 +1,26 @@
-import React, { useEffect } from "react"
-import { Link } from "gatsby"
+import React, { useEffect } from "react";
+import { Link } from "gatsby";
 
 // STYLED-COMPONENT
-import { HeaderNav, Logo, Menu } from "../styles/headerStyles"
-import { Container, Flex } from "../styles/globalStyles"
+import { HeaderNav, Logo, Menu } from "../styles/headerStyles";
+import { Container, Flex } from "../styles/globalStyles";
 
 // Context
 import {
   useGlobalStateContext,
   useGlobalDispatchContext,
-} from "../context/globalContext"
-import { toggle_theme } from "../actions/action"
+} from "../context/globalContext";
+import { toggle_theme, change_Menu } from "../actions/action";
 
 const Header = ({ onCursor }) => {
-  const { currentTheme } = useGlobalStateContext()
-  const dispatch = useGlobalDispatchContext()
+  const { currentTheme, toggleMenu } = useGlobalStateContext();
+  const dispatch = useGlobalDispatchContext();
 
   useEffect(() => {
-    window.localStorage.setItem("theme", currentTheme)
-  }, [currentTheme])
+    window.localStorage.setItem("theme", currentTheme);
+  }, [currentTheme]);
 
-  const toggleTheme = () => dispatch(toggle_theme(currentTheme))
+  const toggleTheme = () => dispatch(toggle_theme(currentTheme));
 
   return (
     <HeaderNav
@@ -39,7 +39,7 @@ const Header = ({ onCursor }) => {
             ></span>
             <Link to="/">W</Link>
           </Logo>
-          <Menu>
+          <Menu onClick={() => dispatch(change_Menu(toggleMenu))}>
             <button>
               <span></span>
               <span></span>
@@ -48,7 +48,7 @@ const Header = ({ onCursor }) => {
         </Flex>
       </Container>
     </HeaderNav>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
