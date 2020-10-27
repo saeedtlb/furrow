@@ -21,7 +21,11 @@ const GlobalStyle = createGlobalStyle`
     ${normalize}
     * {
         text-decoration: none;
-        /* cursor: none; */
+        cursor: none;
+    }
+    
+    ::-webkit-scrollbar {
+        display: none;
     }
     
     html {
