@@ -14,7 +14,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 import { useGlobalStateContext } from "../../context/globalContext";
 
 const HomeBanner = ({ onCursor }) => {
-  const size = useWindowSize();
+  const { width, height } = useWindowSize();
   const { currentTheme } = useGlobalStateContext();
   let canvas = useRef(null);
 
@@ -29,7 +29,7 @@ const HomeBanner = ({ onCursor }) => {
 
     renderingCtx.globalCompositeOperation = "source-over";
     renderingCtx.fillStyle = currentTheme === "dark" ? "#000000" : "#ffffff";
-    renderingCtx.fillRect(0, 0, size.width, size.height);
+    renderingCtx.fillRect(0, 0, width, height);
 
     renderingElement.addEventListener("mouseover", ev => {
       moving = true;
@@ -69,7 +69,7 @@ const HomeBanner = ({ onCursor }) => {
         renderingCtx.drawImage(drawingElement, 0, 0);
       }
     });
-  }, [currentTheme]);
+  }, [currentTheme, width, height]);
 
   const parent = {
     initial: { y: 800 },
@@ -105,8 +105,8 @@ const HomeBanner = ({ onCursor }) => {
       </Video>
       <Canvas
         ref={canvas}
-        width={size.width}
-        height={size.height}
+        width={width}
+        height={height}
         onMouseEnter={() => onCursor("hovered")}
         onMouseLeave={onCursor}
       />
