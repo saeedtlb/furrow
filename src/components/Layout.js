@@ -32,6 +32,7 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
         font-size: 16px;
+        scrollbar-width: none;
     }
     
     body {
