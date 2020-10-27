@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { motion } from "framer-motion"
+import styled from "styled-components";
+import { motion } from "framer-motion";
 
 // Banner
 export const Banner = styled.div`
@@ -8,7 +8,7 @@ export const Banner = styled.div`
   width: 100%;
   position: relative;
   margin-bottom: 296px;
-`
+`;
 
 export const Video = styled.div`
   height: 100%;
@@ -19,7 +19,7 @@ export const Video = styled.div`
   video {
     object-fit: cover;
   }
-`
+`;
 
 export const Canvas = styled.canvas`
   position: absolute;
@@ -27,7 +27,7 @@ export const Canvas = styled.canvas`
   left: 0;
   height: 100%;
   display: block;
-`
+`;
 
 export const BannerTitle = styled(motion.h1)`
   position: absolute;
@@ -35,11 +35,133 @@ export const BannerTitle = styled(motion.h1)`
   left: -18px;
   color: ${props => props.theme.text};
   pointer-events: none;
-`
+`;
 
 export const Headline = styled(motion.span)`
   display: block;
   font-size: 23rem;
   font-weight: 900;
   line-height: 0.76;
-`
+`;
+
+// CONTENT
+export const HomeContentSection = styled(motion.div)`
+  margin-bottom: 200px;
+`;
+
+export const Content = styled.h2`
+  width: 53%;
+  font-size: 2.3rem;
+  font-weight: 400;
+  margin-left: 124px;
+  color: ${props => props.theme.text};
+`;
+
+// FEATURED
+export const Homefeatured = styled.div`
+  margin-bottom: 200px;
+  position: relative;
+
+  a {
+    margin-bottom: 200px;
+    position: relative;
+    display: block;
+  }
+`;
+
+export const FeaturedContent = styled.div`
+  height: 480px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 56px 124px;
+  color: ${props => props.theme.text};
+
+  h3 {
+    font-size: 1.4rem;
+  }
+  .meta {
+    display: flex;
+
+    h4 {
+      &:last-child {
+        margin-left: 1rem;
+      }
+    }
+  }
+  .featured-title {
+    position: absolute;
+    bottom: -128px;
+    font-size: 7rem;
+    font-weight: 900;
+    line-height: 90px;
+    margin: 0;
+
+    .arrow {
+      width: 120px;
+      height: 80px;
+      display: block;
+      position: relative;
+      overflow: hidden;
+
+      svg {
+        position: absolute;
+        top: 16px;
+        left: -48px;
+        width: 108px;
+
+        path {
+          fill: ${props => props.theme.text};
+        }
+      }
+    }
+  }
+`;
+
+export const FeaturedVideo = styled.div`
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 480px;
+  top: 0;
+  display: block;
+  overflow: hidden;
+`;
+
+export const FeaturedProjects = styled.div`
+  margin-top: 200px;
+
+  button {
+    color: #fff;
+    position: relative;
+    padding: 20px;
+    display: block;
+    text-align: left;
+    font-size: 104rem;
+    line-height: 1;
+    font-weight: 600;
+    border: none;
+
+    span {
+      margin-right: 100px;
+      display: block;
+    }
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      width: 35px;
+      height: 7px;
+      display: block;
+      background: #fff;
+      transform: translateY(-50%);
+    }
+    &::before {
+      margin-top: -8px;
+    }
+    &::after {
+      margin-top: 8px;
+    }
+  }
+`;
