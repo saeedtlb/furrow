@@ -1,15 +1,18 @@
 import React, { useEffect } from "react";
 
 // COMPONENT
-import { Accordion } from "../utils/Accordion";
+import Accordion from "../utils/Accordion";
 
 // DATA
 import { accordionIds, Animate_property } from "../utils/misc";
 
 // STYLED-COMPONENT
 import { Container, Flex } from "../../styles/globalStyles";
-import { Services, About } from "../../styles/homeStyles";
-import { motion } from "framer-motion";
+import { About } from "../../styles/homeStyles";
+
+// ANIMATION
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const HomeAbout = ({ onCursor }) => {
   const animation = useAnimation();
@@ -47,12 +50,12 @@ const HomeAbout = ({ onCursor }) => {
               dirty—are you?
             </p>
           </About>
-          <Services>
+          <div>
             <h3>Services</h3>
             {accordionIds.map((details, i) => (
               <Accordion key={i} details={details} onCursor={onCursor} />
             ))}
-          </Services>
+          </div>
         </Flex>
       </Container>
     </motion.div>

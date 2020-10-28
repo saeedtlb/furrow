@@ -1,9 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "gatsby";
 
 // STYLED-COMPONENT
 import { HeaderNav, Logo, Menu } from "../styles/headerStyles";
 import { Container, Flex } from "../styles/globalStyles";
+
+// CUSTOM-HOOK
+import useElementPosition from "../hooks/useElementPosition";
 
 // Context
 import {
@@ -12,15 +15,25 @@ import {
 } from "../context/globalContext";
 import { toggle_theme, change_Menu } from "../actions/action";
 
-const Header = ({ onCursor }) => {
+const Header = ({ onCursor, setHamburgerPosition }) => {
   const { currentTheme, toggleMenu } = useGlobalStateContext();
   const dispatch = useGlobalDispatchContext();
+  const hamburger = useRef(null);
+  const position = useElementPosition(hamburger);
 
   useEffect(() => {
     window.localStorage.setItem("theme", currentTheme);
   }, [currentTheme]);
 
   const toggleTheme = () => dispatch(toggle_theme(currentTheme));
+
+  const menuHover = () => {
+    onCursor("locked");
+    setHamburgerPosition({
+      x: position.x,
+      y: position.y + 72,
+    });
+  };
 
   return (
     <HeaderNav
@@ -39,7 +52,12 @@ const Header = ({ onCursor }) => {
             ></span>
             <Link to="/">W</Link>
           </Logo>
-          <Menu onClick={() => dispatch(change_Menu(toggleMenu))}>
+          <Menu
+            ref={hamburger}
+            onClick={() => dispatch(change_Menu(toggleMenu))}
+            onMouseEnter={menuHover}
+            onMouseLeave={onCursor}
+          >
             <button>
               <span></span>
               <span></span>
