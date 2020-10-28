@@ -25,7 +25,7 @@ import {
   NavVideos,
 } from "../styles/navigationStyles";
 
-const Navigation = ({ onCursor }) => {
+const Navigation = ({ onCursor, setHamburgerPosition }) => {
   const { toggleMenu } = useGlobalStateContext();
   const dispatch = useGlobalDispatchContext();
 
@@ -113,15 +113,11 @@ const Navigation = ({ onCursor }) => {
               </ul>
             </NavList>
             <NavFooter>
-              {/* <Footer /> */}
-              {/* <Flex spaceBetween>
-                    <FooterContent>
-                        <p>info@furrow.studio</p>
-                    </FooterContent>
-                    <FooterContent >
-                        
-                    </FooterContent>
-                </Flex> */}
+              <Footer
+                setHamburgerPosition={setHamburgerPosition}
+                onCursor={onCursor}
+                type="pointer"
+              />
             </NavFooter>
             <NavVideos>
               <motion.div
