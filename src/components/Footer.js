@@ -10,7 +10,7 @@ import { Instagram, Facebook, Vimeo } from "../assets/svg/social-icons";
 // CUSTOM-HOOK
 import useElementPosition from "../hooks/useElementPosition";
 
-const Footer = ({ onCursor, setHamburgerPosition }) => {
+const Footer = ({ onCursor, setHamburgerPosition, type = null }) => {
   const instagramRef = useRef(null);
   const instagram = useElementPosition(instagramRef);
 
@@ -21,7 +21,7 @@ const Footer = ({ onCursor, setHamburgerPosition }) => {
   const vimeo = useElementPosition(vimeoRef);
 
   const menuHover = ({ x }) => {
-    onCursor("locked");
+    type ? onCursor("pointer") : onCursor("locked");
     setHamburgerPosition({ x });
   };
 
