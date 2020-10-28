@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default useElementPosition = el => {
+export default el => {
   const getElement = (x, y) => ({ x, y });
 
   const [elementPosition, setElementPosition] = useState(getElement);
@@ -21,7 +21,7 @@ export default useElementPosition = el => {
     };
 
     handlePosition();
-
-    return elementPosition;
   }, [el]);
+
+  return elementPosition;
 };
