@@ -168,18 +168,13 @@ export const FeaturedProjects = styled.div`
 `;
 
 // ABOUT
-
-// export const HomeAboutSection = styled.div`
-
-// `;
-
 export const About = styled.div`
   width: 100%;
 
   h2 {
     width: 60%;
     font-size: 2.3rem;
-    line-height: 1.6rem;
+    line-height: 2.6rem;
     font-weight: 400;
     margin-left: 124px;
     color: ${props => props.theme.text};
@@ -187,12 +182,13 @@ export const About = styled.div`
   p {
     max-width: 440px;
     font-size: 1rem;
+    line-height: 1.6rem;
     margin-left: 124px;
     color: ${props => props.theme.text};
   }
 `;
 
-export const Services = styled.div``;
+// export const Services = styled.div``;
 
 // ACCORDION
 export const AccordionHeader = styled(motion.div)`
