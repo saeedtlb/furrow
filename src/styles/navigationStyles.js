@@ -30,6 +30,11 @@ export const NavFooter = styled.div`
   width: 100%;
   padding: 56px 0;
 
+  & > div {
+    height: auto;
+    margin-top: auto;
+  }
+
   p {
     color: ${props => props.theme.background};
   }
