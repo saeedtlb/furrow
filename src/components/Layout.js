@@ -76,7 +76,10 @@ const Layout = ({ children }) => {
       <GlobalStyle />
       <Cursor />
       <Header onCursor={onCursor} setHamburgerPosition={setHamburgerPosition} />
-      <Navigation onCursor={onCursor} />
+      <Navigation
+        onCursor={onCursor}
+        setHamburgerPosition={setHamburgerPosition}
+      />
       <main>{children}</main>
       <Footer onCursor={onCursor} setHamburgerPosition={setHamburgerPosition} />
     </ThemeProvider>
