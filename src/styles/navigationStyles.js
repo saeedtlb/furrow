@@ -23,7 +23,20 @@ export const NavHeader = styled.header`
   }
 `;
 
-export const NavFooter = styled.div``;
+export const NavFooter = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 56px 0;
+
+  p {
+    color: ${props => props.theme.background};
+  }
+  svg path {
+    fill: ${props => props.theme.background};
+  }
+`;
 
 export const CloseNav = styled.div`
   button {
