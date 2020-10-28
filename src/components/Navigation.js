@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "gatsby";
 
 import { navRoutes } from "./utils/misc";
+import Footer from "./Footer";
 
 // ANIMATION
 import { motion, AnimatePresence } from "framer-motion";
@@ -111,7 +112,17 @@ const Navigation = ({ onCursor }) => {
                 ))}
               </ul>
             </NavList>
-            <NavFooter></NavFooter>
+            <NavFooter>
+              {/* <Footer /> */}
+              {/* <Flex spaceBetween>
+                    <FooterContent>
+                        <p>info@furrow.studio</p>
+                    </FooterContent>
+                    <FooterContent >
+                        
+                    </FooterContent>
+                </Flex> */}
+            </NavFooter>
             <NavVideos>
               <motion.div
                 className="reveal"
