@@ -49,7 +49,7 @@ export const Flex = style.div`
     ${props =>
       props.alignTop &&
       css`
-        align-items: top;
+        align-items: flex-start;
       `}
     
     ${props =>
