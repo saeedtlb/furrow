@@ -8,8 +8,7 @@ import {
 } from "../../styles/homeStyles";
 
 // ANIMATION
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 // CONTEXT
 import { useGlobalStateContext } from "../../context/globalContext";
@@ -27,7 +26,7 @@ const Accordion = ({ details, onCursor }) => {
         onMouseEnter={() => onCursor("hovered")}
         onMouseLeave={onCursor}
         onHoverStart={() => setHovered(true)}
-        onHoverStart={() => setHovered(false)}
+        onHoverEnd={() => setHovered(false)}
         whileHover={{
           color: currentTheme === "dark" ? "#fff" : "#000",
         }}
@@ -49,12 +48,9 @@ const Accordion = ({ details, onCursor }) => {
         animate={{ height: isOpen ? "100%" : 0 }}
         transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] }}
       >
-        {details.results.map((result, i) => {
-          <span key={i}>{result}</span>;
-        })}
-        <span>kimi</span>
-        <span>Lewis</span>
-        <span>Leclerc</span>
+        {details.results.map((result, i) => (
+          <span key={i}>{result}</span>
+        ))}
       </AccordionContent>
     </>
   );
