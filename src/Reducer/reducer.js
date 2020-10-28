@@ -1,7 +1,6 @@
 import { TOGGLE_THEME, CURSOR, TOGGLE_MENU } from "../actions/types";
 
 export const globalReducer = (state, action) => {
-  console.log(action);
   switch (action.type) {
     case TOGGLE_THEME:
       return {
